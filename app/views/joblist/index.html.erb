@@ -1,1 +1,13 @@
-<h1>hey</h1>
+<h1>Jobs in <%=@city%></h1>
+<%#=@posts.first.children%>
+<%=@posts.each do |post| %>
+  <%= link_to post["title"], post["link"], :target => "_blank" %> || 
+  <% if post["post-time"].empty? %>
+    Featured
+  <%else%>
+    <%=post["post-time"]%>
+  <%end%>
+  <br>
+  <strong><%=post["company"]%></strong><br>
+  <em><%=post["description"]%></em><br><br>
+<%end%>
