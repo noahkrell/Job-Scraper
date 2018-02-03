@@ -10,7 +10,48 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
 
+.nav-title {
+  padding-top: 10px;
+  font-weight: bold;
+  text-shadow: 0.5px 0.5px black;
+}
+
+.row {
+  margin: auto;
+}
+
+.card {
+  background-color: #A0B2A6;
+  border: 1px solid #E6AF2E;
+  height: 200px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-bottom: 20px;
+}
+
+.card-title {
+  padding-top: 5px;
+}
+.card-title a {
+  color: #213F5F;
+  margin: auto;
+}
+.bars {
+  color: #213F5F;
+  font-size: 20px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.company-info {
+  color: #fff;
+}
+.post-description {
+  padding: 5px;
+  color: #E0E2DB;
+}
