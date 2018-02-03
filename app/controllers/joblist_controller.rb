@@ -22,5 +22,4 @@ class JoblistController < ApplicationController
     end
     render :index
   end
-
 end

@@ -1,5 +1,7 @@
-<h1 class="jobs-heading">Jobs in <%=@city%></h1>
-<%#=@posts.first.children%>
+<div class="jobs-list-header">
+  <div class="city-img"><%= image_tag("/#{@city}.jpg", :alt => "hello", :class=> "img-circle") %></div>
+  <div class="jobs-list-header-title"><h1>Jobs in <%=@city%></h1></div>
+</div>
 <div class="row">
   <%@posts.each do |post| %>
     <div class="col-sm-6 col-md-4">
