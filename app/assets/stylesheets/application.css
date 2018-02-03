@@ -21,6 +21,21 @@
   text-shadow: 0.5px 0.5px black;
 }
 
+.main-header {
+  margin-left: 15px;
+  width: 300px;
+  padding-bottom: 10px;
+  border-bottom-style: double;
+  margin-bottom: 30px;  
+}
+
+.jobs-heading {
+  margin-left: 15px;
+  width: 300px;
+  padding-bottom: 10px;
+  border-bottom-style: double;
+  margin-bottom: 30px;
+}
 .row {
   margin: auto;
 }
