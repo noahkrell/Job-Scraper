@@ -77,6 +77,9 @@
   margin-bottom: 20px;
   overflow: hidden;
 }
+.card:hover{
+  box-shadow: 0 4px 8px 0 #E6AF2E, 0 6px 20px 0 #E6AF2E;
+}
 
 .card-title {
   padding-top: 5px;

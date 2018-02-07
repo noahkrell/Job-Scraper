@@ -1,6 +1,6 @@
 <div class="jobs-list-header">
   <div class="city-img"><%= image_tag("/#{@city.downcase}.jpg", :alt => "#{@city}", :class=> "img-circle") %></div>
-  <div class="jobs-list-header-title"><h1>Jobs in <%=@city%></h1></div>
+  <div class="jobs-list-header-title"><h2>Jobs in <%=@city%></h2></div>
 </div>
 <div class="row">
   <%@posts.each do |post| %>
