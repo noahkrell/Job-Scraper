@@ -7,6 +7,15 @@
     <%= link_to post["link"], :target => "_blank" do %>
       <div class="col-sm-6 col-md-4">
           <div class="card">
+            <div class="save-hide-buttons">
+              <span class="save-button">
+                save
+              </span>
+              <span style="color:black"> || </span>
+              <span class="hide-button">
+                hide
+              </span>
+            </div>
             <h3 class="card-title"><%= post["title"] %></h3>
             <div class="company-info">
                 <%=post["company"]%> <span class="bars">||</span>
