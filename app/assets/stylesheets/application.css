@@ -20,10 +20,10 @@
   font-family: monospace;
  }
 
-.nav-title {
-  padding-top: 10px;
+.site-logo {
   font-weight: bold;
-  text-shadow: 0.5px 0.5px black;
+  text-shadow: 0.5px 0.5px;
+  padding-top: 10px;
 }
 
 .main-header {
