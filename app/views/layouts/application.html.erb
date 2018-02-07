@@ -11,14 +11,43 @@
   <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <div class="navbar-header nav-title">
-          <%= link_to "JobScraper", root_path %>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "JobScraper", root_path, class: "navbar-brand" %>
         </div>
-      </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Home", root_path %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Austin", jobs_path(:city=>"Austin") %></li>
+                <li><%= link_to "Boston", jobs_path(:city=>"Boston") %></li>
+                <li><%= link_to "Denver/Boulder", jobs_path(:city=>"Colorado") %></li>
+                <li><%= link_to "Los Angeles", jobs_path(:city=>"LA") %></li>
+                <li><%= link_to "NYC", jobs_path(:city=>"NYC") %></li>
+              </ul>
+            </li>
+          <% if logged_in? %>
+            <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Log in", login_path %></li>
+          <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container-fluid -->
     </nav>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
-    <%= yield %>
+    <div class="container container-main">
+      <%= yield %>
+    </div>
   </body>
 </html>
