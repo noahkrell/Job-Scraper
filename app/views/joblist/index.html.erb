@@ -4,7 +4,7 @@
 </div>
 <div class="row">
   <%@posts.each do |post| %>
-    <%= link_to post["link"], :target => "_blank" do %>
+    <%= link_to post.link, :target => "_blank" do %>
       <div class="col-sm-6 col-md-4">
           <div class="card">
             <div class="save-hide-buttons">
@@ -16,17 +16,17 @@
                 hide
               </span>
             </div>
-            <h3 class="card-title"><%= post["title"] %></h3>
+            <h3 class="card-title"><%= post.title%></h3>
             <div class="company-info">
-                <%=post["company"]%> <span class="bars">||</span>
-                <% if post["post-time"].empty? %>
+                <%=post.company%> <span class="bars">||</span>
+                <% if post.post_time.empty? %>
                   Featured
                 <%else%>
-                  <%=post["post-time"]%>
+                  <%=post.post_time%>
                 <%end%>
             </div>
             <div class="post-description">
-              <em><%=post["description"]%></em>
+              <em><%=post.description%></em>
             </div>
           </div>
       </div>
