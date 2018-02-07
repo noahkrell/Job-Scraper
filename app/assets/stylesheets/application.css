@@ -15,6 +15,11 @@
  *= require_self
  */
 
+
+ body {
+  font-family: monospace;
+ }
+
 .nav-title {
   padding-top: 10px;
   font-weight: bold;
