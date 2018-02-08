@@ -75,12 +75,43 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   margin-bottom: 20px;
-  overflow: hidden;
 }
 .card:hover{
   box-shadow: 0 4px 8px 0 #E6AF2E, 0 6px 20px 0 #E6AF2E;
 }
 
+.save-hide-buttons {
+  width: 40px;
+  float: right;
+  margin-right: -10px;
+  poistion: relative;
+}
+
+.save-button {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  font-size: 11px;
+  padding: 4px;
+  opacity: 0.8;
+  margin-bottom: 3px;
+}
+
+.hide-button {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  font-size: 11px;
+  padding: 4px;
+  opacity: 0.8;
+}
+
+.save-button:hover {
+  color: red;
+}
+.hide-button:hover {
+  color: red;
+}
 .card-title {
   padding-top: 5px;
 }
