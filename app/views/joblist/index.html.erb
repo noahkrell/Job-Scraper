@@ -6,29 +6,27 @@
   <%@posts.each do |post| %>
     <%= link_to post.link, :target => "_blank" do %>
       <div class="col-sm-6 col-md-4">
-          <div class="card">
-            <div class="save-hide-buttons">
-              <span class="save-button">
-                save
-              </span>
-              <span style="color:black"> || </span>
-              <span class="hide-button">
-                hide
-              </span>
-            </div>
-            <h3 class="card-title"><%= post.title%></h3>
-            <div class="company-info">
-                <%=post.company%> <span class="bars">||</span>
-                <% if post.post_time.empty? %>
-                  Featured
-                <%else%>
-                  <%=post.post_time%>
-                <%end%>
-            </div>
-            <div class="post-description">
-              <em><%=post.description%></em>
-            </div>
+        <div class="card">
+          <div class="save-hide-buttons">
+            <div class="save-button">save</div>
+            <div class="hide-button">hide</div>
           </div>
+          <h3 class="card-title"><%= post.title%></h3>
+          <div class="company-info">
+            <span><%=post.company%></span>
+            <span class="bars">||</span>
+            <span>
+            <% if post.post_time.empty? %>
+              Featured
+            <%else%>
+              <%=post.post_time%>
+            <%end%>
+            </span>
+          </div>
+          <div class="post-description">
+            <em><%=post.description%></em>
+          </div>
+        </div>
       </div>
     <% end %>
   <%end%>
