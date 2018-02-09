@@ -2,10 +2,9 @@ $(document).ready(function() {
 
   console.log('hello')
 
-  // $('.save-button').on('click', function(e) {
-  //   e.preventDefault()
-  //   alert('save function not yet available... check back soon!')
-  // });
+  $('.save-hide-buttons').on('click', function(e) {
+    alert('Job saved. Check ya profile.')
+  });
 
   $('.profile-save-hide').on('click', function(e) {
     e.preventDefault()
