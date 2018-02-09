@@ -9,8 +9,7 @@
         <div class="card">
           <% if logged_in? %>
           <div class="save-hide-buttons">
-            <div class="save-button">save</div>
-            <div class="hide-button">hide</div>
+           <%= button_to "SAVE", controller: "votes", action: "create", data: {user: current_user, job: post} %>
           </div>
           <% end %>
           <h3 class="card-title"><%= post.title%></h3>

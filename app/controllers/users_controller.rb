@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    votes = Vote.where(voter_id: current_user)
+    @saved_jobs = []
+    votes.each do |vote|
+      @saved_jobs << Job.find(vote.votable_id)
+    end
   end
 
   def new
