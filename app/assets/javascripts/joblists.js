@@ -4,12 +4,12 @@ $(document).ready(function() {
 
   $('.save-button').on('click', function(e) {
     e.preventDefault()
-    alert('function not yet available... check back soon!')
+    alert('save function not yet available... check back soon!')
   });
 
   $('.hide-button').on('click', function(e) {
     e.preventDefault()
-    alert('function not yet available... check back soon!')
+    alert('hide function not yet available... check back soon!')
   });
 
 });
