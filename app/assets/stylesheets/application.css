@@ -71,6 +71,16 @@
   margin: auto;
 }
 
+.profile-jobs-list {
+  float: left;
+  margin-top: 100px;
+  margin-left: 0;
+}
+
+.job-location {
+  color:black;
+}
+
 .card {
   background-color: #A0B2A6;
   border: 1px solid #E6AF2E;
@@ -84,38 +94,26 @@
   box-shadow: 0 4px 8px 0 #E6AF2E, 0 6px 20px 0 #E6AF2E;
 }
 
+.card-content {
+  padding-top: 10px;
+}
+
 .save-hide-buttons {
-  width: 40px;
   float: right;
   margin-right: -10px;
   poistion: relative;
 }
 
-.save-button {
-  color: white;
-  background-color: black;
-  border-radius: 5px;
+.button_to {
   font-size: 11px;
-  padding: 4px;
-  opacity: 0.8;
-  margin-bottom: 3px;
+  opacity: 0.9;
 }
 
-.hide-button {
-  color: white;
-  background-color: black;
-  border-radius: 5px;
-  font-size: 11px;
-  padding: 4px;
-  opacity: 0.8;
+
+.button_to:hover {
+  color: red;
 }
 
-.save-button:hover {
-  color: red;
-}
-.hide-button:hover {
-  color: red;
-}
 .card-title {
   padding-top: 5px;
 }

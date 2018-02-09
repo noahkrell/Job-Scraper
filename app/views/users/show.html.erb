@@ -9,5 +9,36 @@
       </h1>
     </section>
   </aside>
-  User saved jobs will go here
+  <div class="row profile-jobs-list">
+    <h2>Your saved jobs</h2><br><br>
+    <% @saved_jobs.each do |job| %>
+      <%= link_to job.link, :target => "_blank" do %>
+        <div class="col-sm-6 col-md-4">
+          <div class="card">
+            <div class="save-hide-buttons profile-save-hide">
+              <%= button_to "Delete" %>
+            </div>
+            <div class= "card-content">
+              <h3 class="card-title"><%= job.title%></h3>
+              <h4 class='job-location'> <%= job.location %> </h4>
+              <div class="company-info">
+                <span><%=job.company%></span>
+                <span class="bars">||</span>
+                <span>
+                <% if job.post_time.empty? %>
+                  Featured
+                <%else%>
+                  <%=job.post_time%>
+                <%end%>
+                </span>
+              </div>
+              <div class="post-description">
+                <em><%=job.description%></em>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <%end%>
+</div>
 </div>

@@ -2,14 +2,14 @@ $(document).ready(function() {
 
   console.log('hello')
 
-  $('.save-button').on('click', function(e) {
-    e.preventDefault()
-    alert('save function not yet available... check back soon!')
-  });
+  // $('.save-button').on('click', function(e) {
+  //   e.preventDefault()
+  //   alert('save function not yet available... check back soon!')
+  // });
 
-  $('.hide-button').on('click', function(e) {
+  $('.profile-save-hide').on('click', function(e) {
     e.preventDefault()
-    alert('hide function not yet available... check back soon!')
+    alert('delete function not yet available... check back soon!')
   });
 
 });
