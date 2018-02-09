@@ -7,10 +7,12 @@
     <%= link_to post.link, :target => "_blank" do %>
       <div class="col-sm-6 col-md-4">
         <div class="card">
+          <% if logged_in? %>
           <div class="save-hide-buttons">
             <div class="save-button">save</div>
             <div class="hide-button">hide</div>
           </div>
+          <% end %>
           <h3 class="card-title"><%= post.title%></h3>
           <div class="company-info">
             <span><%=post.company%></span>
