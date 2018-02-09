@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   console.log('hello')
 
-  $('.save-hide-buttons').on('click', function(e) {
+  $('.joblist-save-hide').on('click', function(e) {
     alert('Job saved. Check ya profile.')
   });
 

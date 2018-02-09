@@ -8,7 +8,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="card">
           <% if logged_in? %>
-          <div class="save-hide-buttons">
+          <div class="save-hide-buttons joblist-save-hide">
            <%= button_to "SAVE", controller: "votes", action: "create", data: {user: current_user, job: post} %>
           </div>
           <% end %>
