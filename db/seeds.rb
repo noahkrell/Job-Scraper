@@ -20,7 +20,7 @@ cities.each do |city|
                 company: node.children.css('.company-title').text,
                 location: city,
                 description: node.children.css('.description').text,
-                link: "https://www.builtin" + city + node.children.css('.wrap-view-page').children.attr('href').value,
+                link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value,
                 post_time: node.next_element.children.css('.job-date').text
                 )
   end
