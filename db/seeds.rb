@@ -28,7 +28,7 @@ cities.each do |city|
                 link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value,
                 post_time: node.next_element.children.css('.job-date').text
                 )
-    # otherwise, update the post_time attribute to stay current
+    # otherwise, update the existing job's post_time attribute to stay current
     else
       job.post_time = node.next_element.children.css('.job-date').text
     end
