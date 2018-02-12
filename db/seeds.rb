@@ -12,17 +12,28 @@ require 'openssl'
 
 cities = ["Austin", "Boston", "Colorado", "LA", "NYC"]
 cities.each do |city| 
+  # unique URL for each city
   url = "https://www.builtin" + city + ".com/jobs?f[0]=job-category_107&f[1]=job-category_324&f[2]=experience_level_1&f[3]=experience_level_1-3&f[4]=experience_level_3-5"
   doc = Nokogiri::HTML(open(url, :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
 
   doc.css(' div.original > div.center-left').each do |node|
-    Job.create(title: node.children.css('.title').text,
+    # search the db for the job by its unique URL
+    job = Job.find_by(link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value)
+    # if the job exists in the db, update the post_time attribute to stay current
+    if job
+      job.post_time = node.next_element.children.css('.job-date').text
+    # otherwise, create new Job object with the relevant information from the node
+    else
+      job = Job.new(title: node.children.css('.title').text,
                 company: node.children.css('.company-title').text,
                 location: city,
                 description: node.children.css('.description').text,
                 link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value,
                 post_time: node.next_element.children.css('.job-date').text
                 )
+    end
+
+    job.save
   end
 end
 
