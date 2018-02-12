@@ -19,11 +19,8 @@ cities.each do |city|
   doc.css(' div.original > div.center-left').each do |node|
     # search the db for the job by its unique URL
     job = Job.find_by(link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value)
-    # if the job exists in the db, update the post_time attribute to stay current
-    if job
-      job.post_time = node.next_element.children.css('.job-date').text
-    # otherwise, create new Job object with the relevant information from the node
-    else
+    # if the job doesn't exist in the db, create new Job object with the relevant information from the node 
+    if job.nil?
       job = Job.new(title: node.children.css('.title').text,
                 company: node.children.css('.company-title').text,
                 location: city,
@@ -31,6 +28,9 @@ cities.each do |city|
                 link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value,
                 post_time: node.next_element.children.css('.job-date').text
                 )
+    # otherwise, update the post_time attribute to stay current
+    else
+      job.post_time = node.next_element.children.css('.job-date').text
     end
 
     job.save
