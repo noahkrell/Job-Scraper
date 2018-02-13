@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   post '/save' => 'votes#create'
+  delete '/delete' => 'votes#destroy'
   
   resources :users
 

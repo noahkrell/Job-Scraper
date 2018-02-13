@@ -16,7 +16,7 @@
         <div class="col-sm-6 col-md-4">
           <div class="card">
             <div class="save-hide-buttons profile-save-hide">
-              <%= button_to "Delete" %>
+              <%= button_to "Delete", delete_path, method: :delete, data: { confirm: "Are you sure you want to remove this job from your saved list?" }, params: {job_id: job.id} %>
             </div>
             <div class= "card-content">
               <h3 class="card-title"><%= job.title%></h3>

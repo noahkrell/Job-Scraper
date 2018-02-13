@@ -6,10 +6,10 @@ $(document).ready(function() {
     alert('Job saved. Check ya profile.')
   });
 
-  $('.profile-save-hide').on('click', function(e) {
-    e.preventDefault()
-    alert('delete function not yet available... check back soon!')
-  });
+  // $('.profile-save-hide').on('click', function(e) {
+  //   e.preventDefault()
+  //   alert('delete function not yet available... check back soon!')
+  // });
 
 });
 
