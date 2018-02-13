@@ -26,11 +26,11 @@ cities.each do |city|
                 location: city,
                 description: node.children.css('.description').text,
                 link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value,
-                post_time: node.next_element.children.css('.job-date').text
+                post_time: (node.next_element.children.css('.job-date').text) || (node.next_element.children.css('.job-featured').text)
                 )
     # otherwise, update the existing job's post_time attribute to stay current
     else
-      job.post_time = node.next_element.children.css('.job-date').text
+      job.post_time = (node.next_element.children.css('.job-date').text) || (node.next_element.children.css('.job-featured').text)
     end
 
     job.save
