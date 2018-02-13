@@ -1,6 +1,6 @@
 <div class="jobs-list-header">
   <div class="city-img"><%= image_tag("/#{@city.downcase}.jpg", :alt => "#{@city}", :class=> "img-circle") %></div>
-  <div class="jobs-list-header-title"><h2>Jobs in <%=@city%></h2></div>
+  <div class="jobs-list-header-title"><h2>Jobs in <%=@city%><br><span style="font-size:12px;">  (jobs will refresh every hour on the hour)</span></h2></div>
 </div>
 <div class="row">
   <!-- display the 3 most recently updated 'featured' jobs -->
