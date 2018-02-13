@@ -5,7 +5,9 @@ class JoblistController < ApplicationController
 
   def index
     @city = params[:city]
-    @posts = Job.where(location: @city)
+    jobs = Job.where(location: @city)
+    # sort the job posts by age (see: class Job age method)
+    @posts = jobs.sort_by { |obj| obj.age }
     render :index
   end
 end
