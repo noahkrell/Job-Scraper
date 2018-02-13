@@ -3,6 +3,32 @@
   <div class="jobs-list-header-title"><h2>Jobs in <%=@city%></h2></div>
 </div>
 <div class="row">
+  <!-- display the 3 most recently updated 'featured' jobs -->
+  <% i = 0 %>
+  <% while i < 3 %>
+    <%= link_to @featured_posts[i].link, :target => "_blank" do %>
+      <div class="col-sm-6 col-md-4">
+        <div class="card">
+          <% if logged_in? %>
+          <div class="save-hide-buttons joblist-save-hide">
+           <%= button_to "SAVE", controller: "votes", action: "create", data: {user: current_user, job: @featured_posts[i]} %>
+          </div>
+          <% end %>
+          <h3 class="card-title"><%= @featured_posts[i].title%></h3>
+          <div class="company-info">
+            <span><%=@featured_posts[i].company%></span>
+            <span class="bars">||</span>
+            <span>Featured</span>
+          </div>
+          <div class="post-description">
+            <em><%=@featured_posts[i].description%></em>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% i += 1 %>
+  <% end %>
+  <!-- display the rest of the 'non-featured' jobs -->
   <%@posts.each do |post| %>
     <%= link_to post.link, :target => "_blank" do %>
       <div class="col-sm-6 col-md-4">
