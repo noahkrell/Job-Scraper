@@ -19,18 +19,31 @@ cities.each do |city|
   doc.css(' div.original > div.center-left').each do |node|
     # search the db for the job by its unique URL
     job = Job.find_by(link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value)
-    # if the job doesn't exist in the db, create new Job object with the relevant information from the node 
-    if job.nil?
+
+    # if the job doesn't already exist in the db, and it's NOT a featured job
+    if (job.nil?) && !(node.next_element.children.css('.job-date').text.empty?)
       job = Job.new(title: node.children.css('.title').text,
                 company: node.children.css('.company-title').text,
                 location: city,
                 description: node.children.css('.description').text,
                 link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value,
-                post_time: (node.next_element.children.css('.job-date').text) || (node.next_element.children.css('.job-featured').text)
+                post_time: node.next_element.children.css('.job-date').text
                 )
-    # otherwise, update the existing job's post_time attribute to stay current
-    else
-      job.post_time = (node.next_element.children.css('.job-date').text) || (node.next_element.children.css('.job-featured').text)
+
+    # if the job doesn't already exist in the db, and it IS a featured job
+    elsif (job.nil?) && (node.next_element.children.css('.job-date').text.empty?)
+      job = Job.new(title: node.children.css('.title').text,
+                company: node.children.css('.company-title').text,
+                location: city,
+                description: node.children.css('.description').text,
+                link: "https://www.builtin" + city + ".com" + node.children.css('.wrap-view-page').children.attr('href').value,
+                post_time: node.next_element.children.css('.job-featured').text
+                )
+      
+    # if the job already exists in the db, set it's post_time to the current post time listed on the live site
+    else 
+      job.post_time = node.next_element.children.css('.job-date').text if !(node.next_element.children.css('.job-date').text.empty?)
+      job.post_time = node.next_element.children.css('.job-featured').text if node.next_element.children.css('.job-date').text.empty?
     end
 
     job.save
