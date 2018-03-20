@@ -4,7 +4,7 @@
 </div>
 <div class="row">
   <!-- display the 3 most recently updated 'featured' jobs -->
-  <% i = @featured_posts.count - 1 %>
+  <% i = 2 %>
   <% while i >= 0 %>
     <%= link_to @featured_posts[i].link, :target => "_blank" do %>
       <div class="col-sm-6 col-md-4">
